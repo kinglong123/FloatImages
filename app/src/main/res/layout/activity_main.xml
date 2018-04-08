@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:onClick="gotoImage"
+
     android:orientation="vertical"
     tools:context="com.lijian.FloatImage.MainActivity">
 
@@ -15,6 +15,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Hello World!"
+        android:onClick="gotoImage"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="50sp" />
 
@@ -24,6 +25,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Hello World!"
+        android:onClick="gotoImage2"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="50sp" />
 
@@ -33,6 +35,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Hello World!"
+        android:onClick="gotoImage3"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="50sp" />
 
@@ -42,6 +45,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Hello World!"
+        android:onClick="gotoImage4"
         android:textColor="@android:color/black"
         android:textSize="50sp" />
 

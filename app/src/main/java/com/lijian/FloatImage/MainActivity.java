@@ -18,4 +18,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ImagesActivity.class);
         startActivity(intent);
     }
+    public void gotoImage2(View view) {
+        Intent intent = new Intent(this, scroll.class);
+        startActivity(intent);
+    }
+    public void gotoImage3(View view) {
+        Intent intent = new Intent(this, scroll2.class);
+        startActivity(intent);
+    }
+    public void gotoImage4(View view) {
+        Intent intent = new Intent(this, scroll2.class);
+        startActivity(intent);
+    }
 }

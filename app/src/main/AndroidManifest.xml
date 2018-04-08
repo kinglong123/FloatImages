@@ -21,6 +21,18 @@
             android:theme="@style/ImagesAppDayTheme">
 
         </activity>
+
+
+        <activity
+            android:name="com.lijian.FloatImage.scroll"
+            android:theme="@style/AppTheme">
+
+    </activity>
+        <activity
+                android:name="com.lijian.FloatImage.scroll2"
+                android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>
