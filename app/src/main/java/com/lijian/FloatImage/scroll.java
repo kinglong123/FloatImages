@@ -31,13 +31,13 @@ public class scroll extends Activity {
         scrollToBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btns.scrollTo(-60, -100);
+                layout.scrollTo(-60, -100);
             }
         });
         scrollByBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btns.scrollBy(-60, -100);
+                layout.scrollBy(-60, -100);
             }
         });
     }
