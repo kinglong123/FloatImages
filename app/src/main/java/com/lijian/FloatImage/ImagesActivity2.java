@@ -1,5 +1,7 @@
 package com.lijian.FloatImage;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -10,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-
-import com.github.chrisbanes.photoview.PhotoView;
 
 /**
  * 图集
@@ -98,6 +98,9 @@ public class ImagesActivity2 extends AppCompatActivity {
                 System.out.println("3333initTop:"+initTop);
                 System.out.println("3333nowTop:"+nowTop);
                 System.out.println("3333ratio:"+ratio);
+                if(ratio <0.05){
+                    ratio = 0;
+                }
                 float alpha = 1 - Math.min(1, ratio * 5);
                 mYfBottomLayout.setAlpha(alpha);
                 mYfTitleLayout.setAlpha(alpha);
@@ -123,4 +126,9 @@ public class ImagesActivity2 extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0,0);
+    }
 }

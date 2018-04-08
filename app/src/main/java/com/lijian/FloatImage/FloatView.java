@@ -2,13 +2,10 @@ package com.lijian.FloatImage;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 public class FloatView extends LinearLayout {
@@ -35,12 +32,31 @@ public class FloatView extends LinearLayout {
 //        mHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
 //    }
 
+    View childView;
+    private float mDragOriLeft = Float.MAX_VALUE;
+    private float mDragOriTop = Float.MAX_VALUE;
+    @Override
+    protected void onFinishInflate()
+    {
+        super.onFinishInflate();
+        System.out.println("1111111111111111onFinishInflate:");
+
+        childView = getChildAt(0);
+        if(mDragOriLeft == Float.MAX_VALUE) {//第一次记录位置
+            mDragOriLeft = childView.getLeft();
+            mDragOriTop = childView.getTop();
+            System.out.println("11111111111mDragOriTop:"+mDragOriTop);
+        }
+
+    }
 
     private class DragHelperCallback extends ViewDragHelper.Callback {
 
         @Override
         public boolean tryCaptureView(View child, int pointerId) {
-            return true;
+
+
+            return child == childView;
         }
 
         @Override
@@ -60,19 +76,17 @@ public class FloatView extends LinearLayout {
         {
             return 0;
         }
-        private float mDragOriLeft;
-        private float mDragOriTop;
+
         @Override
         public int clampViewPositionVertical(View child, int top, int dy)
         {
+
             return top;
         }
         @Override
         public void onViewCaptured(View capturedChild, int activePointerId) {
             super.onViewCaptured(capturedChild, activePointerId);
 
-            mDragOriLeft = capturedChild.getLeft();
-            mDragOriTop = capturedChild.getTop();
 
         }
         //手指释放的时候回调
@@ -136,7 +150,8 @@ public class FloatView extends LinearLayout {
             }
             mTop = top;
 
-            System.out.println("11111111111111111onViewPositionChanged+"+mTop);
+            System.out.println("11111111111111111kkkkkkonViewPositionChanged+"+mTop);
+            System.out.println("11111111111111111kkkkkkchangedView.getTop()+"+changedView.getTop());
             mDragRange = getHeight();
             mDragOffset = (float) top / mDragRange;
 
@@ -278,5 +293,12 @@ public class FloatView extends LinearLayout {
         void onPositionChange(int initTop, int nowTop, float ratio);
 
         void onFlingOutFinish();
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+
+
     }
 }
