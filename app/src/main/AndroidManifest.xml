@@ -33,6 +33,9 @@
                 android:theme="@style/AppTheme">
 
         </activity>
+	        <activity
+            android:name="com.lijian.FloatImage.ImagesActivity2"
+            android:theme="@style/ImagesAppDayTheme"/>
     </application>
 
 </manifest>
