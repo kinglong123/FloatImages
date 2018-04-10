@@ -30,4 +30,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ImagesActivity2.class);
         startActivity(intent);
     }
+    public void gotoImage5(View view) {
+        Intent intent = new Intent(this, Animator.class);
+        startActivity(intent);
+    }
+    public void gotoImage6(View view) {
+        Intent intent = new Intent(this, SuperSlidingDrawerActivity.class);
+        startActivity(intent);
+    }
 }

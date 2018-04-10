@@ -36,6 +36,15 @@
 	        <activity
             android:name="com.lijian.FloatImage.ImagesActivity2"
             android:theme="@style/ImagesAppDayTheme1"/>
+
+
+        <activity
+                android:name="com.lijian.FloatImage.Animator"
+                android:theme="@style/AppTheme"/>
+
+        <activity
+                android:name="com.lijian.FloatImage.SuperSlidingDrawerActivity"
+                android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

@@ -12,9 +12,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
         android:gravity="center"
-        android:text="Hello World!"
+        android:text="scrlll实现"
         android:onClick="gotoImage"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="50sp" />
@@ -22,9 +22,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
         android:gravity="center"
-        android:text="Hello World!"
+        android:text="移动"
         android:onClick="gotoImage2"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="50sp" />
@@ -32,9 +32,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
         android:gravity="center"
-        android:text="Hello World!"
+        android:text="简单viewpager"
         android:onClick="gotoImage3"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="50sp" />
@@ -42,11 +42,33 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
         android:gravity="center"
-        android:text="Hello World!"
+        android:text="draghelper实现"
         android:onClick="gotoImage4"
         android:textColor="@android:color/black"
         android:textSize="50sp" />
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="Animator实现"
+            android:onClick="gotoImage5"
+            android:textColor="@android:color/black"
+            android:textSize="50sp" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="SuperSlidingDrawer今日头条回复页面"
+            android:onClick="gotoImage6"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
 </LinearLayout>
