@@ -1,24 +1,29 @@
 package com.lijian.FloatImage;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 /**
  * Created by lanjl on 2018/4/10.
  */
-public class SuperSlidingDrawerActivity extends Activity {
+public class SuperSlidingDrawerActivity extends FragmentActivity {
 
    LinearLayout mLinearLayout;
     SuperSlidingDrawer mSuperSlidingDrawer;
     int mHiddenViewMeasuredHeight;
+    FrameLayout mFrameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sliding);
+
+        mFrameLayout = findViewById(R.id.ff);
+
         mLinearLayout = findViewById(R.id.ll);
         mSuperSlidingDrawer = findViewById(R.id.sl);
 
@@ -36,6 +41,13 @@ public class SuperSlidingDrawerActivity extends Activity {
                 }
             }
         });
+
+        RootFragment fragment;
+        if(savedInstanceState == null)
+            fragment = (RootFragment) FragmentsUtils.swapFragments(getSupportFragmentManager(), R.id.ff, RootFragment.newInstance());
+        else
+            fragment = (RootFragment) FragmentsUtils.findFragment(getSupportFragmentManager(), RootFragment.newInstance(), null);
+
 
     }
 

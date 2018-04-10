@@ -22,9 +22,11 @@
         android:id="@+id/sl"
         android:layout_alignParentBottom="true"
 
-        android:layout_height="200dp">
+
+        android:layout_height="300dp">
 
        <FrameLayout android:layout_width="match_parent"
+                    android:id="@+id/ff"
                     android:background="@color/colorAccent"
                     android:layout_height="match_parent">
 

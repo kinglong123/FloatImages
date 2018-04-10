@@ -14,27 +14,27 @@ import android.widget.LinearLayout;
 /**
  * Created by lanjl on 2018/4/10.
  */
-public class SuperSlidingDrawer extends LinearLayout {
+public class SuperSlidingDrawer1 extends LinearLayout {
     private final ViewDragHelper mHelper;
 
     public enum SlidingState {
         EXPANDED,
         COLLAPSED
     }
-    private SlidingState mSlideState = SlidingState.EXPANDED;
+    private SlidingState mSlideState = SlidingState.COLLAPSED;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public SuperSlidingDrawer(Context context) {
+    public SuperSlidingDrawer1(Context context) {
         this(context, null);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public SuperSlidingDrawer(Context context,
+    public SuperSlidingDrawer1(Context context,
             @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public SuperSlidingDrawer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SuperSlidingDrawer1(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         // setBackgroundColor(Color.parseColor("#50FFFFFF"));
         mHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
@@ -258,8 +258,6 @@ public class SuperSlidingDrawer extends LinearLayout {
             invalidate();
         }else {
 
-
-            System.out.println("11111111111111mDragOffset:"+mDragOffset);
             if(Math.abs(mDragOffset) > 0.8 ){
                 mSlideState = SlidingState.COLLAPSED;
                 if(mPositionListener!=null){
@@ -286,26 +284,22 @@ public class SuperSlidingDrawer extends LinearLayout {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
         super.onMeasure(widthMeasureSpec,  heightMeasureSpec);
 
-     //   mHiddenViewMeasuredHeight= MeasureSpec.getSize(heightMeasureSpec);
+        mHiddenViewMeasuredHeight= MeasureSpec.getSize(heightMeasureSpec);
 
 
 
     }
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-     //   super.onLayout(changed, l, t, r, b);
-        mHiddenViewMeasuredHeight = childView.getMeasuredHeight();
-        MarginLayoutParams lp = (MarginLayoutParams) childView.getLayoutParams();
-        if(mSlideState == SlidingState.COLLAPSED){
-//            super.onLayout(changed, l, t+mHiddenViewMeasuredHeight, r, b+mHiddenViewMeasuredHeight);
-            childView.layout( l, lp.topMargin+mHiddenViewMeasuredHeight, r, lp.topMargin+2*mHiddenViewMeasuredHeight);
+        super.onLayout(changed, l, t, r, b);
+        mHiddenViewMeasuredHeight = childView.getHeight();
 
-        }else{
-            childView.layout(l, lp.topMargin, r, lp.topMargin + mHiddenViewMeasuredHeight);
+        if(mSlideState == SlidingState.COLLAPSED){
+            //super.onLayout(changed, l, t-mHiddenViewMeasuredHeight, r, b-mHiddenViewMeasuredHeight);
+            childView.layout(l, t-mHiddenViewMeasuredHeight, r, b-mHiddenViewMeasuredHeight);
+
         }
 
-        System.out.println("1111111111ttttt:"+t);
-        System.out.println("11111111111onLayout:"+mHiddenViewMeasuredHeight);
 
 
 
