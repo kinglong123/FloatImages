@@ -319,6 +319,10 @@ public class SuperSlidingDrawer extends LinearLayout {
     public void computeScroll()
     {
         System.out.println("computeScroll");
+        if(mDragOffset <0.1){
+            setVisibility(VISIBLE);
+        }
+
         if (mHelper != null && mHelper.continueSettling(true)) {
 
             invalidate();
@@ -328,6 +332,7 @@ public class SuperSlidingDrawer extends LinearLayout {
             System.out.println("11111111111111mDragOffset:"+mDragOffset);
             if(Math.abs(mDragOffset) > 0.8 ){
                 mSlideState = SlidingState.COLLAPSED;
+                setVisibility(GONE);
                 if(mPositionListener!=null){
                     mPositionListener.onFlingOutFinish();
                 }
@@ -387,6 +392,7 @@ public class SuperSlidingDrawer extends LinearLayout {
 //        this.setVisibility(View.VISIBLE);
 //        mHelper.settleCapturedViewAt((int)mDragOriLeft,(int)mDragOriTop);
         mSlideState = SlidingState.EXPANDED;
+        setVisibility(VISIBLE);
         if (mHelper != null ) {
             View child = getChildAt(0);
 
@@ -407,6 +413,9 @@ public class SuperSlidingDrawer extends LinearLayout {
     public void animateClose() {
 //        this.setVisibility(View.GONE);
         mSlideState = SlidingState.COLLAPSED;
+
+
+
         if (mHelper != null ) {
             View child = getChildAt(0);
 
