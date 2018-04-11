@@ -6,10 +6,14 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.ViewDragHelper;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
 
 /**
  * Created by lanjl on 2018/4/10.
@@ -182,6 +186,38 @@ public class SuperSlidingDrawer extends LinearLayout {
     private float mInitialMotionX;
     private float mInitialMotionY;
     private ScrollableViewHelper mScrollableViewHelper = new ScrollableViewHelper();
+    private View scrView;
+    boolean interceptTap = false;
+
+    public View getView(View view,float x,float y) {
+
+        if(view instanceof ViewGroup ){
+            int conut = ((ViewGroup) view).getChildCount();
+            if(conut >0){
+                for(int i=0;i<=conut-1;i++){
+                    View aview = ((ViewGroup) view).getChildAt(i);
+                    if (aview instanceof ListView
+                            ||aview instanceof ListView
+                            ||aview instanceof ScrollView
+                            ||aview instanceof RecyclerView){
+                        interceptTap = mHelper.isViewUnder(aview, (int) x, (int) y);
+                        if(interceptTap){
+                            return aview;
+
+                        }
+                    }else if(aview instanceof ViewGroup){
+                       return getView(aview, x, y);
+                    }
+
+
+                }
+
+            }
+        }
+        return  null;
+
+    }
+
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
@@ -194,6 +230,7 @@ public class SuperSlidingDrawer extends LinearLayout {
 
         if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
             mHelper.cancel();
+            scrView = null;
             return false;
         }
 
@@ -206,7 +243,33 @@ public class SuperSlidingDrawer extends LinearLayout {
             case MotionEvent.ACTION_DOWN: {
                 mInitialMotionX = x;
                 mInitialMotionY = y;
-                //  interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
+
+                if(childView instanceof ViewGroup){
+                    scrView = getView(childView,x,y);
+//                    if()
+//                    int conut = ((ViewGroup) childView).getChildCount();
+//                    if(conut >0){
+//                        for(int i=0;i<=conut-1;i++){
+//                            View aview = ((ViewGroup) childView).getChildAt(i);
+//                            if (aview instanceof ListView
+//                                    ||aview instanceof ListView
+//                                    ||aview instanceof ScrollView
+//                                    ||aview instanceof RecyclerView){
+//
+//                                interceptTap = mHelper.isViewUnder(aview, (int) x, (int) y);
+//                                if(interceptTap){
+//                                    scrView =  aview;
+//                                }
+//                            }
+//
+//
+//                        }
+//
+//                    }
+
+                }
+
+
                 break;
             }
 
@@ -221,16 +284,15 @@ public class SuperSlidingDrawer extends LinearLayout {
                     return false;
                 }
 //这边需要向sling组件学习
-//                if (dy> 0) { // Collapsing 向下
-//
-//                    if (mScrollableViewHelper.getScrollableViewScrollPosition(childView, true) > 0) {
-//
-//                        return true;
-//                    }else{
-//                        return false;
-//                    }
-//
-//               }
+                if (dy> 0 && scrView !=null) { // Collapsing 向下
+
+                    if (mScrollableViewHelper.getScrollableViewScrollPosition(scrView, true) > 0) {
+
+                        mHelper.abort();
+                        return false;
+                    }
+
+               }
 
 
             }
@@ -238,6 +300,10 @@ public class SuperSlidingDrawer extends LinearLayout {
 
         return mHelper.shouldInterceptTouchEvent(ev) ;
     }
+
+
+
+
 
 
 
@@ -292,8 +358,8 @@ public class SuperSlidingDrawer extends LinearLayout {
 
     }
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-     //   super.onLayout(changed, l, t, r, b);
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {//这ltrb应该是指整个view在布局中的位置
+       // super.onLayout(changed, l, t, r, b);
         mHiddenViewMeasuredHeight = childView.getMeasuredHeight();
         MarginLayoutParams lp = (MarginLayoutParams) childView.getLayoutParams();
         if(mSlideState == SlidingState.COLLAPSED){
