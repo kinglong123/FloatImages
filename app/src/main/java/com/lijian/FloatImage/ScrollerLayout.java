@@ -69,10 +69,14 @@ public class ScrollerLayout extends ViewGroup {
             // 为ScrollerLayout中的每一个子控件测量大小
             measureChild(childView, widthMeasureSpec, heightMeasureSpec);
         }
+//        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
+//                getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
+
+
 
 //        int measureWidth = MeasureSpec.getSize(widthMeasureSpec);
 //        int measureHeigth = MeasureSpec.getSize(heightMeasureSpec);
-////        setMeasuredDimension(measureWidth, measureHeigth);
+//        setMeasuredDimension(measureWidth, measureHeigth);
 //        // TODO Auto-generated method stub
 //        for(int i= 0;i<getChildCount();i++){
 //            View v = getChildAt(i);
@@ -157,7 +161,12 @@ public class ScrollerLayout extends ViewGroup {
                     scrollTo(leftBorder, 0);
                     return true;
                 } else if (getScrollX() + getWidth() + scrolledX > rightBorder) {
+                    System.out.println("11111rightBorder;"+(rightBorder ));
+                    System.out.println("11111rigetWidth();"+(getWidth() ));
+
+                    System.out.println("11111rightBorder - getWidth();"+(rightBorder - getWidth()));
                     scrollTo(rightBorder - getWidth(), 0);
+
                     return true;
                 }
                 mXLastMove = mXMove;

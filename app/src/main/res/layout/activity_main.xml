@@ -70,5 +70,14 @@
 
             android:textColor="@android:color/black"
             android:textSize="20sp" />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
+            android:gravity="center"
+            android:text="FlowViewGroup流式布局"
+            android:onClick="FlowViewGroup"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 </LinearLayout>

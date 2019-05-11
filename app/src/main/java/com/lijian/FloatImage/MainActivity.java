@@ -38,4 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SuperSlidingDrawerActivity.class);
         startActivity(intent);
     }
+    public void FlowViewGroup(View view) {
+        Intent intent = new Intent(this, FlowViewGroupActivity.class);
+        startActivity(intent);
+    }
+
 }

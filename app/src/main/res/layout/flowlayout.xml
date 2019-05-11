@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lijian.FloatImage.FlowViewGroup
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="#d23c3c"
+        android:padding="5dp"
+        android:id="@+id/flowlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+</com.lijian.FloatImage.FlowViewGroup>

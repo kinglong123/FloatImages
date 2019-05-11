@@ -45,6 +45,10 @@
         <activity
                 android:name="com.lijian.FloatImage.SuperSlidingDrawerActivity"
                 android:theme="@style/AppTheme"/>
+        <activity
+                android:name="com.lijian.FloatImage.FlowViewGroupActivity"
+                android:theme="@style/AppTheme"/>
+
     </application>
 
 </manifest>
