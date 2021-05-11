@@ -52,3 +52,4 @@ gradle/
 gradlew
 gradlew.bat
 unused.txt
+.idea

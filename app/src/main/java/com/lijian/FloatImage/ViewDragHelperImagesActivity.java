@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
  * Created by lijian on 2017/11/21.
  */
 
-public class ImagesActivity2 extends AppCompatActivity {
+public class ViewDragHelperImagesActivity extends AppCompatActivity {
 
     private static final String TAG = "ImagesActivity";
     LinearLayout mYfTitleLayout;
@@ -45,7 +45,7 @@ public class ImagesActivity2 extends AppCompatActivity {
         mViewPager.setAdapter(new PagerAdapter() {
 
             public Object instantiateItem(ViewGroup container, int position) {
-                View itemView = LayoutInflater.from(ImagesActivity2.this).inflate(R.layout.item_image, container, false);
+                View itemView = LayoutInflater.from(ViewDragHelperImagesActivity.this).inflate(R.layout.item_image, container, false);
                 PhotoView photoView = itemView.findViewById(R.id.image);
                 int index = position % image.length;
                 photoView.setImageResource(image[index]);

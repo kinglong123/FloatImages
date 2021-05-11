@@ -34,7 +34,7 @@
 
         </activity>
 	        <activity
-            android:name="com.lijian.FloatImage.ImagesActivity2"
+            android:name="com.lijian.FloatImage.ViewDragHelperImagesActivity"
             android:theme="@style/ImagesAppDayTheme1"/>
 
 

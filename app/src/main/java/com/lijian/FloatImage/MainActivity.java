@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, scroll2.class);
         startActivity(intent);
     }
-    public void gotoImage4(View view) {
-        Intent intent = new Intent(this, ImagesActivity2.class);
+    public void gotodraghelperImage4(View view) {
+        Intent intent = new Intent(this, ViewDragHelperImagesActivity.class);
         startActivity(intent);
     }
     public void gotoImage5(View view) {
