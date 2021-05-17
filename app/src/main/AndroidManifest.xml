@@ -49,6 +49,10 @@
                 android:name="com.lijian.FloatImage.FlowViewGroupActivity"
                 android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name="com.lijian.FloatImage.zidingyiView"
+            android:theme="@style/AppTheme"/>
+
     </application>
 
 </manifest>

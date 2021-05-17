@@ -42,5 +42,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FlowViewGroupActivity.class);
         startActivity(intent);
     }
+    public void zdyView(View view) {
+        Intent intent = new Intent(this, zidingyiView.class);
+        startActivity(intent);
+    }
+
 
 }
