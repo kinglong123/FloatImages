@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, zidingyiView.class);
         startActivity(intent);
     }
-
+    public void zdyViewGroup(View view) {
+        Intent intent = new Intent(this, zidingyiViewGroup.class);
+        startActivity(intent);
+    }
 
 }

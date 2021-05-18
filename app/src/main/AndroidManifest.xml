@@ -53,6 +53,11 @@
             android:name="com.lijian.FloatImage.zidingyiView"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name="com.lijian.FloatImage.zidingyiViewGroup"
+            android:theme="@style/AppTheme"/>
+
+
     </application>
 
 </manifest>

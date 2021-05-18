@@ -91,4 +91,17 @@
 
         android:textColor="@android:color/black"
         android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:text="自定义viewGroup"
+        android:onClick="zdyViewGroup"
+
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+
 </LinearLayout>
